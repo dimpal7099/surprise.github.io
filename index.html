@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Chocolate Day</title>
+    <style>
+        /* Add your uploaded image link here */
+        body {
+            background: url('YOUR_IMAGE_URL_HERE') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px); /* Soft blur effect */
+        }
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Soft white background */
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border: 5px solid pink; /* Cute frame */
+        }
+        .button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #6a0dad;
+        }
+        .hidden {
+            display: none;
+        }
+        .choco-container {
+            position: relative;
+            width: 150px;
+            height: 200px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wrapper {
+            width: 150px;
+            height: 100px;
+            background: purple;
+            position: absolute;
+            top: 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 1s ease-in-out;
+        }
+        .chocolate {
+            width: 150px;
+            height: 100px;
+            background: brown;
+            position: absolute;
+            bottom: 0;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 5px;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .cube {
+            width: 40px;
+            height: 40px;
+            background: #5a2d0c;
+            border-radius: 5px;
+        }
+        #finalMessage {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6a0dad;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🎀 Happy Chocolate Day 🎀</h2>
+        <button class="button" onclick="showMessage()">Open the Surprise</button>
+
+        <p id="message" class="hidden">
+            Chocolate is sweet, but your smile is even sweeter!  
+            Wishing you a day filled with joy and lots of chocolates!  
+            💖 Happy Chocolate Day! 💖
+        </p>
+
+        <button id="openButton" class="button hidden" onclick="showChocolate()">Open</button>
+
+        <div class="choco-container hidden" id="chocoContainer">
+            <div class="wrapper" id="wrapper">Dairy Milk Silk</div>
+            <div class="chocolate" id="chocolate">
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+            </div>
+        </div>
+
+        <p id="finalMessage" class="hidden">I know it's not real, but soon I'll send you a real one. Don't worry! 😭😂✨</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").classList.remove("hidden");
+            document.getElementById("openButton").classList.remove("hidden");
+        }
+
+        function showChocolate() {
+            document.getElementById("chocoContainer").classList.remove("hidden");
+            setTimeout(() => {
+                document.getElementById("wrapper").style.transform = "translateY(-110px)"; // Moves correctly
+                document.getElementById("chocolate").style.opacity = "1";
+                setTimeout(() => {
+                    document.getElementById("finalMessage").classList.remove("hidden");
+                }, 1000);
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
